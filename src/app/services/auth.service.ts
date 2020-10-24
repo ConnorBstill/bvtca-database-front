@@ -20,7 +20,7 @@ export class AuthService {
   public expires: number = 0;
   public user: AuthUser = null;
 
-  protected readonly tokenKey: string = '';
+  protected readonly tokenKey: string = 'demo_token';
   protected readonly expiresKey: string = '';
   protected readonly refreshKey: string = '';
   protected readonly userKey: string = '';

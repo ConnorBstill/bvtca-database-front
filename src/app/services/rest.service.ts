@@ -49,7 +49,7 @@ export class RestService {
             headers: {'Content-Type': 'application/json'}
         })
         .toPromise()
-        // .catch(err => console.log(err));
+        .catch(err => console.log(err));
         console.log('this.buildOptions', promise)
     } else {
       promise = this.http[httpMethod](url, {
@@ -77,7 +77,6 @@ export class RestService {
    * @return {Promise<any>}
    */
   post(url: string, body?: any): Promise<any> {
-      console.log(url, '\n', body)
     return this.generateHttpPromise('post', url, body);
   }
 
@@ -136,9 +135,8 @@ export class RestService {
    */
   private buildOptions(): HttpHeaders {
     return new HttpHeaders({
-    //   Accept: 'application/json',
-      'Content-Type': 'application/json'
-    //   Authorization: 'Bearer ' + this.jwt.checkToken()
+      'Content-Type': 'application/json',
+      Authorization: 'Bearer ' + this.jwt.checkToken()
     });
   }
 

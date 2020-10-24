@@ -15,9 +15,12 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.rest.post(`http://localhost:3000/register`, {
       email: 'connor@lamarsoftware.io',
-      password: 'password'
+      password: 'password',
+      fname: 'Connor',
+      lname: 'Steele'
     }).then(res => {
-      console.log('res', res)
+      console.log('res', res);
+      localStorage.setItem('demo_token', res)
     }).catch(err => {
       console.log('err', err)
     })
